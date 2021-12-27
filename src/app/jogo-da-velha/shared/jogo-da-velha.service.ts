@@ -33,8 +33,7 @@ export class JogoDaVelhaService {
     this.vitoria = false;
     this.inicializarTabuleiro();
   }
-
-  /**
+   /**
    * Inicializar o tabuleiro do jogo com vazio para todas as posições
    */
   inicializarTabuleiro(): void{
@@ -43,4 +42,22 @@ export class JogoDaVelhaService {
     this.tabuleiro[i] = [this.VAZIO, this.VAZIO, this.VAZIO];
     }
   }
+   /**
+   * Retorna se a tela de ínicio deve ser exibida.
+   */
+    get showInicio(): boolean {
+      return this.showInicio;
+    }
+    /**
+    * Retorna se a tela de início deve ser exibida.
+    */
+    get showTabuleiro(): boolean {
+      return this._showTabuleiro;
+    }
+    /**
+     * Retorna o número de jogador a jogar
+     */
+    get jogador(): number {
+      return this._jogador;
+    }
 }
