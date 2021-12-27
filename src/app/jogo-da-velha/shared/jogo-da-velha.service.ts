@@ -21,4 +21,26 @@ export class JogoDaVelhaService {
   private _showFinal: boolean;
 
   constructor() { }
+/**
+ * Inicializa o jogo. Define exibição da tela
+ */
+  inicializar(): void {
+    this._showInicio = true;
+    this._showTabuleiro = false;
+    this._showFinal = false;
+    this.numMovimentos = 0;
+    this._jogador = this.X;
+    this.vitoria = false;
+    this.inicializarTabuleiro();
+  }
+
+  /**
+   * Inicializar o tabuleiro do jogo com vazio para todas as posições
+   */
+  inicializarTabuleiro(): void{
+    this.tabuleiro = [this.TAM_TAB];
+    for(let i = 0; i < this.TAM_TAB; i++){
+    this.tabuleiro[i] = [this.VAZIO, this.VAZIO, this.VAZIO];
+    }
+  }
 }
