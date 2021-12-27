@@ -62,4 +62,11 @@ export class JogoDaVelhaService {
     get jogador(): number {
       return this._jogador;
     }
+    /**
+     * Clique para iniciar o jogo
+     */
+    iniciarJogo(): void {
+      this._showInicio = false;
+      this._showTabuleiro = true;
+    }
 }
