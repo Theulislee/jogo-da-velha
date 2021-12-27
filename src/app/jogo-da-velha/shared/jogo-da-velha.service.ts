@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class JogoDaVelhaService {
 
-  //Add serviço da calculadora.
+  /**
+   * Add serviço da calculadora
+   */
   private readonly TAM_TAB: number = 3;
   private readonly X: number = 1;
   private readonly O: number = 2;
