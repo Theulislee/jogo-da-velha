@@ -69,4 +69,31 @@ export class JogoDaVelhaService {
       this._showInicio = false;
       this._showTabuleiro = true;
     }
+    /**
+     * Realizar uma jogada, dado as coordenadas do tabuleiro
+     * (Se alguém ja jogou e ter o valor diferente de vazio, está casa está ocupada
+     * então ela não pode executar)
+     */
+    jogar(posX: number, posY: number): void {
+      //jogada invalida (verifica se a jogada é invalida)
+      if(this.tabuleiro[posX][posY] !== this.VAZIO ||
+        this.vitoria) {
+          return;
+        }
+
+    /**
+    *Momento da jogada
+    */
+    /* this.tabuleiro[posX][posY] = this._jogador;
+    this.numMovimentos++;
+    this.vitoria = this.fimJogo(posX, posY,
+      this.tabuleiro, this._jogador);
+      this._jogador = (this.jogador === this.X) ? this.O: this.X;
+ */
+   /*  //metodo cpu jogar
+    if(!this.vitoria && this.numMovimentos < 9) {
+      this.cpuJogar();}
+    }
+  } */
+ }
 }
