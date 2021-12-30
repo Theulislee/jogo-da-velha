@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { flushMicrotasks } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,8 @@ export class JogoDaVelhaService {
   constructor() { }
 /**
  * Inicializa o jogo. Define exibição da tela
+ *
+ * @return void
  */
   inicializar(): void {
     this._showInicio = true;
@@ -37,6 +40,8 @@ export class JogoDaVelhaService {
   }
    /**
    * Inicializar o tabuleiro do jogo com vazio para todas as posições
+   *
+   * @return void
    */
   inicializarTabuleiro(): void{
     this.tabuleiro = [this.TAM_TAB];
@@ -46,24 +51,40 @@ export class JogoDaVelhaService {
   }
    /**
    * Retorna se a tela de ínicio deve ser exibida.
+   *
+   * @return boolean
    */
     get showInicio(): boolean {
       return this.showInicio;
     }
     /**
     * Retorna se a tela de início deve ser exibida.
+    *
+    * @return boolean
     */
     get showTabuleiro(): boolean {
       return this._showTabuleiro;
     }
     /**
+     * Retorna se a tela de fim de jogo deve ser exibido
+     *
+     * @return boolean
+     */
+    get showFinal(): boolean {
+      return this._showFinal;
+    }
+    /**
      * Retorna o número de jogador a jogar
+     *
+     * @return boolean
      */
     get jogador(): number {
       return this._jogador;
     }
     /**
-     * Clique para iniciar o jogo
+     * Exibe o tabuleiro
+     *
+     * @return void
      */
     iniciarJogo(): void {
       this._showInicio = false;
@@ -84,16 +105,65 @@ export class JogoDaVelhaService {
     /**
     *Momento da jogada
     */
-    /* this.tabuleiro[posX][posY] = this._jogador;
+     this.tabuleiro[posX][posY] = this._jogador;
     this.numMovimentos++;
     this.vitoria = this.fimJogo(posX, posY,
       this.tabuleiro, this._jogador);
       this._jogador = (this.jogador === this.X) ? this.O: this.X;
- */
-   /*  //metodo cpu jogar
+
+    //metodo cpu jogar
     if(!this.vitoria && this.numMovimentos < 9) {
-      this.cpuJogar();}
+      /*this.cpuJogar(); */
     }
-  } */
- }
+
+    //Houve vitoria
+     if (this.vitoria !== false) {
+      this._showFinal = true;
+    }
+
+    //Houve empate
+    if(!this.vitoria && this.numMovimentos === 9) {
+      this._jogador = 0;
+      this._showFinal = true;
+    }
+  }
+
+  /**
+   * Verifica e retorna se o jogo terminou.
+   *
+   * @param number linha
+   * @param number coluna
+   * @param any tabuleiro
+   * @param number jogador
+   * @return array
+   */
+
+    //Metodo fim de jogo
+     fimJogo(linha: number, coluna: number,
+      tabuleiro: any, jogador: number) {
+        let fim: any = false;
+
+      //valida a linha
+      if(tabuleiro [linha][0] === jogador &&
+        tabuleiro [linha][1] === jogador &&
+        tabuleiro [linha][2] === jogador) {
+          fim = [[linha, 0], [linha, 1], [linha, 2]];
+        }
+
+    //valida a coluna
+    if(tabuleiro [0][coluna] === jogador &&
+      tabuleiro [1][coluna] === jogador &&
+      tabuleiro [2][coluna] === jogador) {
+        fim = [[0, coluna], [1, coluna], [2, coluna]];
+      }
+
+    // valida as diagonais
+    if (tabuleiro [0][0] === jogador &&
+      tabuleiro [1][1] === jogador &&
+      tabuleiro [2][2] === jogador) {
+        fim = [[0, 0], [1, 1], [2, 0]];
+      }
+
+      return fim;
+  }
 }
