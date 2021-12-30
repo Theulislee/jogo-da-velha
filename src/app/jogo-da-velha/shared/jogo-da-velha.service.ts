@@ -138,7 +138,6 @@ export class JogoDaVelhaService {
    * @return array
    */
 
-    //Metodo fim de jogo
      fimJogo(linha: number, coluna: number,
       tabuleiro: any, jogador: number) {
         let fim: any = false;
@@ -162,6 +161,12 @@ export class JogoDaVelhaService {
       tabuleiro [1][1] === jogador &&
       tabuleiro [2][2] === jogador) {
         fim = [[0, 0], [1, 1], [2, 0]];
+      }
+
+    if (tabuleiro[0][2] === jogador &&
+      tabuleiro[1][1] === jogador &&
+      tabuleiro[2][0] === jogador) {
+        fim  = [[0, 2], [1, 1], [2, 0]];
       }
 
       return fim;
