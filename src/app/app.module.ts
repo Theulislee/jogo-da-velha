@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { JogoDaVelhaModule } from './jogo-da-velha'; //add Module jogo da velha
@@ -10,7 +12,8 @@ import { JogoDaVelhaModule } from './jogo-da-velha'; //add Module jogo da velha
   ],
   imports: [
     BrowserModule,
-    JogoDaVelhaModule
+    FormsModule,
+    JogoDaVelhaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
