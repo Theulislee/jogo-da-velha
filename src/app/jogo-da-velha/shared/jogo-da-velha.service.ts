@@ -142,11 +142,11 @@ export class JogoDaVelhaService {
         let fim: any = false;
 
       //valida a linha
-      if(tabuleiro [linha][0] === jogador &&
-        tabuleiro [linha][1] === jogador &&
-        tabuleiro [linha][2] === jogador) {
-          fim = [[linha, 0], [linha, 1], [linha, 2]];
-        }
+      if (tabuleiro[linha][0] === jogador &&
+        tabuleiro[linha][1] === jogador &&
+        tabuleiro[linha][2] === jogador) {
+        fim = [[linha, 0], [linha, 1], [linha, 2]];
+      }
 
     //valida a coluna
     if(tabuleiro [0][coluna] === jogador &&
@@ -159,7 +159,7 @@ export class JogoDaVelhaService {
     if (tabuleiro [0][0] === jogador &&
       tabuleiro [1][1] === jogador &&
       tabuleiro [2][2] === jogador) {
-        fim = [[0, 0], [1, 1], [2, 0]];
+        fim = [[0, 0], [1, 1], [2, 2]];
       }
 
     if (tabuleiro[0][2] === jogador &&
