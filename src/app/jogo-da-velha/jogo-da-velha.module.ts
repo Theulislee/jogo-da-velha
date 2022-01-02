@@ -17,7 +17,6 @@ import { JogoDaVelhaService } from './shared'; //add import service do jogo do l
   exports: [
     JogoDaVelhaComponent
   ],
-
   providers: [
     JogoDaVelhaService
   ]

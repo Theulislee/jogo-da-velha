@@ -12,7 +12,7 @@ import { JogoDaVelhaModule } from './jogo-da-velha'; //add Module jogo da velha
   imports: [
     BrowserModule,
     FormsModule,
-    JogoDaVelhaModule,
+    JogoDaVelhaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
