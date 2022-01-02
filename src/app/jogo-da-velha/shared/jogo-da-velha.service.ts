@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class JogoDaVelhaService {
 
   /**
@@ -42,7 +40,7 @@ export class JogoDaVelhaService {
    *
    * @return void
    */
-  inicializarTabuleiro(): void{
+  inicializarTabuleiro(): void {
     this.tabuleiro = [this.TAM_TAB];
     for(let i = 0; i < this.TAM_TAB; i++){
     this.tabuleiro[i] = [this.VAZIO, this.VAZIO, this.VAZIO];
@@ -54,7 +52,7 @@ export class JogoDaVelhaService {
    * @return boolean
    */
     get showInicio(): boolean {
-      return this.showInicio;
+      return this._showInicio;
     }
     /**
     * Retorna se a tela de início deve ser exibida.
@@ -112,7 +110,7 @@ export class JogoDaVelhaService {
 
     //metodo cpu jogar
     if(!this.vitoria && this.numMovimentos < 9) {
-      /*this.cpuJogar(); */
+      this.cpuJogar();
     }
 
     //Houve vitoria
